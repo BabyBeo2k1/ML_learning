@@ -1,0 +1,5 @@
+14/3/2022:
+input layer-> first activation layer
+hidden layer-> next activation layer
+output layer-> last activation layer
+a^l_i:= i is node order, l is layer
