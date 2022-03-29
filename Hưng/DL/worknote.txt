@@ -1,3 +1,4 @@
+
 14/3/2022:
 input layer-> first activation layer
 hidden layer-> next activation layer
@@ -63,4 +64,20 @@ frobenius norm (nn): sum of square of elements in matrix
 update dw after add regularization
 dw[l]=lambda*w[l]/m+back_prop
 update new w[l]:w[l]:=(1-lr*lambda/m)*w[l]-lr*(back_prop) (weight decay)
+lambda big->  w[l] ~0
+reduce nodes
+*drop out regularization
+0.5 chance of remove nodes
+implement:
++example: layer=3, keep_pron=0.8
++d3=np.random,rand(a3.shape[0], a3.shape[1]) < keep_prob --> d3= matrix contain 0 or 1
++a3=a3*d3
++a3/= keep_prob (z[4]=w[4].a[3]+b[4], a[3] reduced *=(1-keep_prob)-> /=keep_prob)
+*explaination
+* early stopping:
+dev set error & training set error good enough for the iteration (dev set error getting worse)
+*normalize set:
+subtract means
+devide norm
+--> symetric
 
