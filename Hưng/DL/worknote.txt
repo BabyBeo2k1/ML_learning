@@ -47,3 +47,20 @@ a0->[w1,b1]-a1-->[w2,b2]-...->[wi,bi]->a[i](y^)
 	|	    |		|		
 	dw1	   dw2		dwi	
 	db1	   db2		dbi
+*bias/variance
+high bias: poor performance on train set
+high variance: poor performance on test set/ overfitting
+* road for ML
+high bias-y- change network(nodes, architecture)- repeat
+|
+n
+|
+high variance-y- change data, regularization, architecture- repeat
+*regulization:
+L1 regularization: L+lambda*||w||1/m
+L2 regularization: L+lambda*||w||2/m
+frobenius norm (nn): sum of square of elements in matrix
+update dw after add regularization
+dw[l]=lambda*w[l]/m+back_prop
+update new w[l]:w[l]:=(1-lr*lambda/m)*w[l]-lr*(back_prop) (weight decay)
+
