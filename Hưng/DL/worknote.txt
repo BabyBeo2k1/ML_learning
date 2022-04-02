@@ -80,4 +80,11 @@ dev set error & training set error good enough for the iteration (dev set error 
 subtract means
 devide norm
 --> symetric
-
+*vanishing/exploding gradients
+multiple multi weight in layers create function of power
+--> init weights: reduce in vanish/explode
+ReLU: var=(1/n)  --> w[l]= rand(shape)*sqrt(1/n[l])
+tanh: var=(2/n) 
+*grad check
+wi,bi -> theta_i
+dtheta_i=
