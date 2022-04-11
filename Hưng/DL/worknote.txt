@@ -87,4 +87,47 @@ ReLU: var=(1/n)  --> w[l]= rand(shape)*sqrt(1/n[l])
 tanh: var=(2/n) 
 *grad check
 wi,bi -> theta_i
-dtheta_i=
+*mini-batch
+size ~ >1 and <all
+ideal : 2^k (k= 6;10)
+*exponentially weight average
+v_t=beta* v_(t-1)+(1-beta)*theta_t
+meaning: avg value over 1 period
+v_t=sigma(beta*(1-beta)^k*v_(t-k))
+--> graph will be smoothier
+-problem: t low (t<1/(1-beta))--> v_t~0
+- solve: v_t=vt/(1-beta^t)
+*GD with momentum
+-do ewa to dw, db
+-implement: vdw := beta*(vdw)+(1-beta)*dw; w:=w-lr*vdw
+same with b
+*RMSprop
+- Sdw= beta*Sdw+(1-beta)* dw^2
+- w= w-lr*dw/sqrt(Sdw +e )   #e is preventing sdw close to 0
+same with b
+*adam opt algo
+Sdw= (beta_2*Sdw+(1-beta_2)*dw^2)/(1-beta_2^t)
+Vdw= (beta_1*Vdw+(1-beta_1)*dw)/(1-beta_1^t)
+w= w-lr*Vdw/sqrt(Sdw+e)
+beta_1 ~0.9
+beta_2~0.999
+e~ 10^-8
+* lr decay
+- lr_i=lr_0/(1+decay_rate*i)
+- lr_i=0.95^i
+
+* batch norm
+z=gamma*(z-mu)/sqrt(epsi+sigma)+beta
+-note that gamma and beta are learnable
+
+*softmax regression
+- output layer has >1 output (size =(n,1))
+- activation function for softmax layer: 
++ z=w*a+b (4,1)
++ t= e^z
++ a=t/np.sum(t)
+- lost func: J=1/m*sum (-ylog(a_l))
+*orthogonalization (90 degree each dimension)
+- seperately change/tunning during stages of training/dev/test sets
+*error ananlysts
+- mislabeled  (but correct with purpose like cat but labeled wrong) high-> potential high
