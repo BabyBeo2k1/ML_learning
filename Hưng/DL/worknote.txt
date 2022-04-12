@@ -131,3 +131,10 @@ z=gamma*(z-mu)/sqrt(epsi+sigma)+beta
 - seperately change/tunning during stages of training/dev/test sets
 *error ananlysts
 - mislabeled  (but correct with purpose like cat but labeled wrong) high-> potential high
+- DL accept the random error (typo,etc) if considerable ratio in total error -> fix, else, can ignore
+- test/dev set different distribution:
++ opt1: merge both -> proportion from test set / dev set will not work as what we want (target)
++opt2: dev/test will be the target purpose 
+-bias and variance:
++ train-dev: same distributtion to the train but not learn, if high level of error -> high varience problem, if low level error -> mismatch, if train set have high error from human leve-> bias
++
