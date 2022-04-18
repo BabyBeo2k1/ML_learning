@@ -137,4 +137,11 @@ z=gamma*(z-mu)/sqrt(epsi+sigma)+beta
 +opt2: dev/test will be the target purpose 
 -bias and variance:
 + train-dev: same distributtion to the train but not learn, if high level of error -> high varience problem, if low level error -> mismatch, if train set have high error from human leve-> bias
-+
+-Transfer learning
++ some layer transfer for do other things. eg: a cat detection use for the radiation detect
++ transfer only from a nn that has >> target nn
++  transfer through same type input (img)
+-multi-task
++ last layer has n nodes for number of target task
++ share same input (4 objects in 1 img)
++similar input
